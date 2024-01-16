@@ -82,11 +82,11 @@ Set up the database to migrate all inital tables and seed dummy data
 ## Running the app
 
 1. Make sure the docker instance is running:
-`run docker-compse up -d`
+`docker-compose up -d`
 
 2. Run the frontend dev enviroment: `npm run dev`
 
-3. Run the backend dev enviroment: `php artisan dev`
+3. Run the backend dev enviroment: `php artisan serve`
 
 4. You can now load base url which by default is: `localhost:8000`
 
