@@ -15,7 +15,7 @@
         },
     });
 
-    const authUserId = usePage().props.auth.user?.id;
+    const authUser = usePage().props.auth.user;
 
     const form = useForm({
         body: ''
@@ -30,7 +30,7 @@
                     <div class="flex justify-between items-center">
                         <h2 class="text-6xl font-bold dark:text-white">{{ post.title }}</h2>
 
-                        <div v-if="authUserId === post.user_id" class="flex gap-3">
+                        <div v-if="authUser.isAdmin || (authUser.id === post.user_id)" class="flex gap-3">
                             <EditPostForm :post="post" />
                             <DeletePostForm :post="post" />
                         </div>
@@ -58,7 +58,7 @@
                             </p>
                         </div>
 
-                        <div v-if="authUserId === comment.user_id" class="flex gap-3">
+                        <div v-if="authUser.isAdmin || (authUser.id === comment.user_id)" class="flex gap-3">
                             <EditCommentForm :comment="comment" />
                             <DeleteCommentForm :comment="comment" />
                         </div>
