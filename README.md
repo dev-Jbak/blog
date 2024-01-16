@@ -1,0 +1,81 @@
+# Bloggging platform
+
+This is a basic example of a blogging application providing a interface to be able to create, update, delete and view posts as well as comments.
+
+
+### Structure
+
+|  Posts     |
+|  --------  |
+|    ID      |
+| created_at |
+| updated_at |
+| user_id    |
+| title      |
+| short_body |
+| body       |
+| emailed_at |
+
+|  Comments  |
+|  --------  |
+|    ID      |
+| created_at |
+| updated_at |
+| user_id    |
+| post_id    |
+| body       |
+
+Post
+  -> Comments
+
+
+
+## Install
+
+- Docker
+
+## Setting up the enviroment
+
+First spin up the docker instance:
+
+`run docker-compse up -d`
+
+---
+
+Install frontend and backend packages:
+
+`npm install`
+
+`composer install`
+
+---
+
+Set up the database to migrate all inital tables and seed dummy data
+
+`php artisan migrate:fresh --seed`
+
+
+## Running the app
+
+1. Make sure the docker instance is running:
+`run docker-compse up -d`
+
+2. Run the frontend dev enviroment: `npm run dev`
+
+3. Run the backend dev enviroment: `php artisan dev`
+
+4. You can now load base url which by default is: `localhost:8000`
+
+> Seeded data includes 3 users:
+>
+> Email | Password
+> 
+> admin@local.com | password
+> 
+> user1@local.com | password
+> 
+> user2@local.com | password
+
+
+
+
