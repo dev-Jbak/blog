@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Comment;
+namespace App\Http\Requests\Post;
 
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
@@ -12,7 +12,7 @@ class DestroyRequest extends FormRequest
     {
         return (
             $this->user()->is_admin ||
-            ($this->user()->id === $this->comment->user_id)
+            ($this->user()->id === $this->post->user_id)
         );
     }
 }

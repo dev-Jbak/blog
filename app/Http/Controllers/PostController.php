@@ -12,6 +12,9 @@ use Inertia\Inertia;
 use Inertia\Response;
 
 use App\Models\Post;
+use App\Http\Requests\Post\UpdateRequest;
+use App\Http\Requests\Post\StoreRequest;
+use App\Http\Requests\Post\DestroyRequest;
 
 class PostController extends Controller
 {
@@ -33,7 +36,7 @@ class PostController extends Controller
     /**
      * Store the Post form.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreRequest $request): RedirectResponse
     {
         Post::create([
             'user_id' => $request->user()->id,
@@ -48,17 +51,16 @@ class PostController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdateRequest $request, Post $post)
     {
         $post->update([
-            // 'user_id' => $request->user()->id,
             'title' => $request->post_title ?? $post->title,
             'short_body' => substr($request->post_body, 0, 100) ?? $post->short_body,
             'body' => $request->post_body ?? $post->body,
         ]);
     }
 
-    public function destroy(Request $request, Post $post): RedirectResponse
+    public function destroy(DestroyRequest $request, Post $post): RedirectResponse
     {
         $post->delete();
 

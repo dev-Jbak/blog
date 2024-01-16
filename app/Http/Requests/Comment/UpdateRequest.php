@@ -10,6 +10,9 @@ class UpdateRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return $this->user()->id === $this->comment->user_id;
+        return (
+            $this->user()->is_admin ||
+            ($this->user()->id === $this->comment->user_id)
+        );
     }
 }
