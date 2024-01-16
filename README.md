@@ -38,7 +38,7 @@ Post
 
 First spin up the docker instance:
 
-`run docker-compse up -d`
+`docker-compose up -d`
 
 ---
 
