@@ -64,7 +64,9 @@ Make a copy of the example env band configure it with mail config:
 >
 > MAIL_ENCRYPTION=tls
 
-Worth running this to update config cache `php artisan config:cache`
+Worth running this to update all caches incase mail config does not update:
+
+`php artisan config:cache`
 
 ---
 
