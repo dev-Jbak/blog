@@ -55,7 +55,7 @@ class PostController extends Controller
     {
         $post->update([
             'title' => $request->post_title ?? $post->title,
-            'short_body' => substr($request->post_body, 0, 100) ?? $post->short_body,
+            'short_body' => substr($request->post_body ?? $post->body, 0, 100) ,
             'body' => $request->post_body ?? $post->body,
         ]);
     }
